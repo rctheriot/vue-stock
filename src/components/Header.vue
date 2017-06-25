@@ -1,6 +1,6 @@
 <template>
   <v-toolbar class="blue-grey darken-3">
-    <v-toolbar-title class="hidden-sm-and-down"><router-link to="/" exact>Stock Trader</router-link></v-toolbar-title>
+    <v-toolbar-title class="hidden-sm-and-down"><router-link :to="{ name: 'home' }" exact>Stock Trader</router-link></v-toolbar-title>
     
     <v-flex xs4>
       <v-subheader class="green--text text--lighten-1">Funds: {{ funds | currency }}</v-subheader>
@@ -8,11 +8,11 @@
   
     <v-toolbar-items>
       <v-toolbar-item>
-        <router-link to="/portfolio">Portfolio</router-link>
+        <router-link :to="{ name: 'portfolio' }">Portfolio</router-link>
       </v-toolbar-item>
 
       <v-toolbar-item>
-        <router-link to="/stocks">Stocks</router-link>
+        <router-link :to="{ name: 'stocks' }">Stocks</router-link>
       </v-toolbar-item>
 
       <v-toolbar-item class="">
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-  import {mapActions} from 'vuex';
+  import { mapActions } from 'vuex';
 
   export default {
     computed: {
@@ -69,7 +69,10 @@
       loadData() {
         this.fetchData();
       }
-    }
+    },
+    created: function() {
+      this.loadData();
+    },
   }
 
 </script>

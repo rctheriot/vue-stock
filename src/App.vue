@@ -8,7 +8,7 @@
         </transition>
       </v-container>
     </main>
-    <v-footer></v-footer>
+    <v-footer fixed class="blue-grey darken-3" ></v-footer>
   </v-app>
 </template>
 
